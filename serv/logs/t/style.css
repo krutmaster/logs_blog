@@ -1,0 +1,113 @@
+:root{
+  --bg:#06070a; --fg:#c7ffd1; --dim:rgba(199,255,209,.65);
+  --line:rgba(199,255,209,.18); --warn:#ff4d4d; --btn:rgba(199,255,209,.10);
+  --glow:0 0 22px rgba(112,255,168,.18);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+.bg{
+  position:fixed; inset:0; pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 20% 15%, rgba(120,255,170,.10), transparent 60%),
+    radial-gradient(700px 400px at 80% 10%, rgba(90,210,255,.08), transparent 60%),
+    radial-gradient(900px 600px at 60% 90%, rgba(255,90,140,.06), transparent 60%);
+  filter: blur(0.2px);
+}
+.wrap{max-width:980px; margin:32px auto; padding:16px}
+.top{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:14px 16px; border:1px solid var(--line); border-radius:18px;
+  box-shadow:var(--glow);
+  background:linear-gradient(180deg, rgba(199,255,209,.05), rgba(199,255,209,.02));
+}
+.brand{display:flex; align-items:center; gap:12px}
+.dot{width:10px; height:10px; border-radius:50%; background:var(--fg); box-shadow:0 0 12px rgba(199,255,209,.55)}
+.h{font-weight:800; letter-spacing:.12em}
+.sub{font-size:12px; color:var(--dim)}
+.actions{display:flex; gap:10px; flex-wrap:wrap}
+.btn{
+  padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+  background:var(--btn); color:var(--fg); cursor:pointer;
+}
+.btn:hover{box-shadow:var(--glow)}
+.btnDanger{border-color:rgba(255,77,77,.35); color:#ffd7d7}
+.panel{
+  margin-top:14px; border:1px solid var(--line); border-radius:18px;
+  background:rgba(199,255,209,.03); box-shadow:var(--glow);
+  padding:16px;
+}
+.row{display:flex; gap:14px; flex-wrap:wrap}
+.kv{
+  flex:1 1 160px; padding:10px 12px; border:1px solid var(--line); border-radius:14px;
+  background:rgba(199,255,209,.03);
+}
+.kv span{display:block; font-size:12px; color:var(--dim)}
+.kv b{display:block; margin-top:4px; letter-spacing:.08em}
+.hint{margin:14px 0; color:var(--dim); font-size:12px; line-height:1.5}
+code{color:var(--fg); background:rgba(199,255,209,.06); padding:2px 6px; border-radius:8px; border:1px solid var(--line)}
+.paste{display:flex; gap:10px; margin:12px 0}
+.input{
+  flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+  background:rgba(0,0,0,.25); color:var(--fg);
+}
+.screen{
+  position:relative; border:1px solid var(--line); border-radius:16px;
+  background:rgba(0,0,0,.35); overflow:hidden;
+}
+.scanlines{
+  position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(to bottom, rgba(255,255,255,.03), rgba(255,255,255,.03) 1px, transparent 1px, transparent 4px);
+  mix-blend-mode:overlay; opacity:.35;
+}
+.out{
+  margin:0; padding:14px 14px 18px;
+  min-height:360px; white-space:pre-wrap; word-break:break-word;
+  color:var(--fg);
+}
+.dim{color:var(--dim)}
+.foot{margin-top:10px; padding:6px 2px}
+
+/* QR modal */
+.modal{
+  position:fixed; inset:0; z-index:50;
+  background:rgba(0,0,0,.65);
+  display:flex; align-items:center; justify-content:center;
+  padding:18px;
+}
+.hidden{display:none}
+.modalCard{
+  width:min(920px, 100%);
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(0,0,0,.75);
+  box-shadow:var(--glow);
+  overflow:hidden;
+}
+.modalTop{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 14px;
+  border-bottom:1px solid var(--line);
+}
+.modalTitle{letter-spacing:.18em; font-weight:800}
+.videoWrap{position:relative; background:#000}
+.video{width:100%; height:auto; display:block}
+.scanOverlay{
+  position:absolute; inset:0; pointer-events:none;
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.35);
+}
+.scanOverlay:after{
+  content:"";
+  position:absolute;
+  left:50%; top:50%;
+  width:min(70vw, 360px);
+  height:min(70vw, 360px);
+  transform:translate(-50%,-50%);
+  border:2px solid rgba(199,255,209,.65);
+  border-radius:16px;
+  box-shadow:0 0 22px rgba(112,255,168,.18);
+}
+.modalHint{padding:12px 14px; border-top:1px solid var(--line)}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LOG TERMINAL</title>
+  <link rel="stylesheet" href="/t/style.css"/>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <div class="h">TERMINAL // LOGS</div>
+          <div class="sub" id="subtitle">standby</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnScan" class="btn">SCAN QR</button>
+        <button id="btnClear" class="btn btnDanger">CLEAR CACHE</button>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <div class="kv"><span>LOG</span><b id="logId">—</b></div>
+        <div class="kv"><span>RECOVERED</span><b id="progress">0/0</b></div>
+        <div class="kv"><span>TOKENS</span><b id="tokenCount">0</b></div>
+      </div>
+
+      <div class="hint">
+        Сканируй QR — фрагменты добавляются и сохраняются в браузере.<br/>
+        Если у тебя уже есть ссылка на лог: <code>.../t/#ID</code>
+      </div>
+
+      <div class="screen">
+        <div class="scanlines"></div>
+        <pre id="out" class="out">Загрузи лог по id в URL...</pre>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span class="dim">Сохранение прогресса: localStorage. Кэш: Service Worker.</span>
+    </footer>
+  </main>
+
+  <div id="scanModal" class="modal hidden" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalTop">
+        <div class="modalTitle">SCAN</div>
+        <button id="btnScanClose" class="btn btnDanger">CLOSE</button>
+      </div>
+
+      <div class="videoWrap">
+        <video id="scanVideo" class="video" muted playsinline></video>
+        <div id="scanOverlay" class="scanOverlay"></div>
+      </div>
+
+      <div class="modalHint dim" id="scanHint">Разреши камеру. Наводи на QR.</div>
+    </div>
+  </div>
+
+  <script src="/t/vendor/qr-scanner.umd.min.js"></script>
+  <script src="/t/app.js"></script>
+</body>
+</html>
