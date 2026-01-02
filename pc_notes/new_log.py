@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import base64
 import hashlib
 import json
@@ -199,7 +198,6 @@ def main():
         remote_json = REMOTE_DIR.rstrip("/") + f"/{log_id}.json"
         sftp.put(str(local_json), remote_json)
 
-        # локально сохраняем список ссылок (тебе удобно копировать/вставлять)
         links = [f"{BASE_URL.rstrip('/')}/t/#{log_id}&k={t}" for t in tokens]
         tokens_txt = "LOG " + log_id + "\n" + "\n".join(f"{i+1}. {u}" for i, u in enumerate(links)) + "\n"
         local_tokens = OUT_DIR / f"{log_id}_tokens.txt"

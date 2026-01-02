@@ -30,7 +30,6 @@ async function networkFirst(req) {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
 
-  // ВАЖНО: не кэшируем sw.js вообще
   if (url.pathname === '/sw.js') {
     e.respondWith(fetch(e.request, { cache: 'no-store' }));
     return;
