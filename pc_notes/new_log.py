@@ -16,7 +16,7 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 load_dotenv()
 BASE_URL = os.getenv('BASE_URL')
 SFTP_HOST = os.getenv('SFTP_HOST')
-SFTP_PORT = os.getenv('SFTP_PORT')
+SFTP_PORT = int(os.getenv('SFTP_PORT'))
 SFTP_USER = os.getenv('SFTP_USER')
 SFTP_PASSWORD = os.getenv('SFTP_PASSWORD')
 REMOTE_DIR = os.getenv('REMOTE_DIR')
